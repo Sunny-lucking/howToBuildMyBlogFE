@@ -1,0 +1,164 @@
+@import "theme.less";
+.stream-pin-item{
+    .pin {
+        background-color: #fff;
+        border-radius: .2rem;
+        .pin-header-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 2rem 0 20px;
+            align-items: center;
+            .account-group, .header-action {
+                display: flex;
+            }
+            .account-group {
+                align-items: center;
+            }
+            .account-group{
+                .user-popover-box {
+                    display: inline;
+                    .user-link {
+                        font-size: 0;
+                        .avatar {
+                            display: inline-block;
+                            position: relative;
+                            background-size: cover;
+                            background-color: #eee;
+                            flex: 0 0 auto;
+                            width: 3.75rem;
+                            height: 3.75rem;
+                            border-radius: 50%;
+                        }
+                        .avatar, .avatar.xmas:after {
+                            background-position: 50%;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+                .pin-header-content {
+                    margin-left: 1rem;
+                    .user-popover-box {
+                        display: inline;
+                        .username {
+                            font-size: 1.25rem;
+                            font-weight: 600;
+                            color: #2e3135;
+                        }
+                    }
+                    .meta-box {
+                        display: flex;
+                        align-items: center;
+                        margin: .3rem 0 0;
+                        font-size: 13px;
+                        color: #8a9aa9;
+                        cursor: default;
+                        .position {
+                            max-width: 24rem;
+                        }
+                        .dot {
+                            margin: 0 .5em;
+                        }
+                        .time-box {
+                            color: #8a9aa9;
+                            .time-box {
+                                color: #8a9aa9;
+                            }
+                        }
+                    }
+                }
+            }
+            .header-action {
+                .subscribe-btn {
+                    border: 1px solid #37c700;
+                    background-color: #fff;
+                    color: #37c700;
+                    margin: 1rem auto;
+                    font-size: 1.1rem;
+                }
+                .follow-button {
+                    margin: 0 0 0 auto;
+                    padding: 0;
+                    width: 55px;
+                    height: 26px;
+                    font-size: 13px;
+                    border-color: #6cbd45;
+                    color: #6cbd45;
+                    margin: 0 0 0 auto;
+                    padding: 0;
+                    width: 55px;
+                    height: 26px;
+                    font-size: 13px;
+                    border-color: #6cbd45;
+                    color: #6cbd45;
+                
+                }
+            }
+        }
+        .pin-content-row, .pin-image-row, .pin-link-row, .pin-topic-row {
+            position: relative;
+            margin: 1rem 4rem 0 6.45rem;
+        }
+        .pin-content-row {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            .content-box {
+                font-size: 15px;
+                line-height: 1.6;
+                color: #17181a;
+                overflow: hidden;
+                white-space: pre-line;
+            }
+        }
+        .pin-topic-row {
+            margin-top: .666rem;
+            .topic-title {
+                font-size: 13px;
+                display: inline-block;
+                line-height: 22px;
+                padding: 0 12px;
+                border: 1px solid @theme-color;
+                border-radius: 14px;
+                color: @theme-color;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        }
+        .pin-image-row {
+            margin-top: .333rem;
+        }
+        .pin-action-row{
+            .action-box {
+                display: flex;
+                position: relative;
+                margin-top: 1.333rem;
+                height: 34px;
+                border-top: 1px solid #ebebeb;
+                .action {
+                    flex: 1 1 33.333%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    height: 100%;
+                    cursor: pointer;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    .action-title {
+                        margin-left: .3em;
+                        font-size: 13px;
+                        font-weight: 500;
+                        color: #8a93a0;
+                    }
+                }
+            }
+        }
+        .pin-comment-row{
+            padding:15px;
+            padding-top:0;
+        }
+    }
+}

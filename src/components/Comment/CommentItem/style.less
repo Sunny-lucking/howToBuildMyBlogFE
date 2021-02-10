@@ -1,0 +1,121 @@
+
+.comment-item-box {
+    .comment {
+        display: flex;
+        .user-popover-box {
+            display: inline;
+            .user-link {
+                flex: 0 0 auto;
+                .avatar {
+                    width: 2.667rem;
+                    height: 2.667rem;
+                    border-radius: 50%;
+                }
+            }
+        }
+        &>.content-box {
+            margin-left: .833rem;
+            flex: 1 1 auto;
+            .meta-box {
+                display: flex;
+                align-items: center;
+                font-size: 1.083rem;
+                line-height: 1.25;
+                white-space: nowrap;
+                .user-popover-box {
+                    display: inline;
+                    .username {
+                        font-size: 1.083rem;
+                        font-weight: 400;
+                        flex: 1 1 auto;
+                        width: 0;
+                        color: #333;
+                        .name {
+                            display: inline-block;
+                            vertical-align: top;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                        .rank {
+                            margin-left: .33rem;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+                .position {
+                    color: #8a9aa9;
+                    font-size: 1.083rem;
+                    margin-left: 4px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    max-width: 16rem;
+                }
+            }
+            .content {
+                margin-top: .55rem;
+                font-size: 1.083rem;
+                line-height: 1.833rem;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+                color: #505050;
+                // overflow: hidden;
+            }
+            .reply-stat {
+                display: flex;
+                margin-top: 7px;
+                font-weight: 400;
+                cursor: pointer;
+                .time {
+                    font-size: 1.083rem;
+                    color: #8a9aa9;
+                    cursor: default;
+                }
+                .delete {
+                    display: none;
+                }
+                .action-box {
+                    flex: 0 0 auto;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-left: auto;
+                    min-width: 8.8rem;
+                    color: #8a93a0;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    .action {
+                        display: flex;
+                        align-items: center;
+                        margin-left: .5rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .reply-stat:hover .delete {
+                display: block;
+            }
+           
+            
+            .comment-form.reply{
+                z-index: 999;
+            }
+            .sub-comment-list {
+                margin: 1rem 0;
+                padding: 0 0 0 1rem;
+                background-color: #fafbfc;
+                border-radius: 3px;
+               
+            }
+        }
+        .content-box:hover .reply-stat{
+            .delete{
+                display: block;
+            }
+        }
+    }
+
+}
+

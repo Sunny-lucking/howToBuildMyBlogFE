@@ -1,0 +1,86 @@
+
+   
+.minor-area {
+    flex: 0 0 auto;
+    margin-left: 1rem;
+    width: 20rem;
+    line-height: 1.2;
+    .sticky {
+        position: fixed;
+        top: 6.766999999999999rem;
+        width: 20rem;
+        transition: all .2s;
+        .shadow {
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+        }
+        .block {
+            background-color: #fff;
+            border-radius: 2px;
+        }
+        .stat-block {
+            margin-bottom: 1rem;
+            .block-title {
+                padding: 1.333rem;
+                font-size: 1.333rem;
+                font-weight: 600;
+                color: #31445b;
+                border-bottom: 1px solid rgba(230,230,231,.5);
+                
+            }
+            .block-body {
+                padding: 1.333rem;
+                .zan,.icon {
+                    flex: 0 0 auto;
+                    margin-right: 1.2rem;
+                }
+                .count {
+                    margin: 0 .3em;
+                    font-weight: 500;
+                }
+                .stat-item {
+                    display: flex;
+                    align-items: center;
+                    font-size: 1.25rem;
+                    color: #000;
+                    
+                }
+                .stat-item:not(:last-child) {
+                    margin-bottom: .8rem;
+                }
+            }
+        }
+        .follow-block {
+            display: flex;
+            position: relative;
+            margin-bottom: 1rem;
+            .follow-item {
+                flex: 1 1 auto;
+                padding: 1.333rem 0;
+                text-align: center;
+                color: #31445b;
+                .item-title {
+                    font-size: 1.333rem;
+                    font-weight: 500;
+                }
+                .item-count {
+                    margin-top: .5rem;
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        .more-block {
+            background-color: transparent;
+            .more-item {
+                display: flex;
+                padding: 1.25rem .417rem;
+                font-size: 1.25rem;
+                color: #000;
+                border-top: 1px solid rgba(230,230,231,.5);
+                .item-title {
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+}

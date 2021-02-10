@@ -1,0 +1,99 @@
+@import "theme.less";
+.aside {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 240px;
+    .sticky-section {
+        position: fixed;
+        top: 116px;
+        .section {
+            width: 240px;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px 0 rgba(4,5,13,.23);
+            background-color: #fff;
+            .slogan {
+                padding: 15px 16px;
+                border-bottom: 1px solid #e6e8e8;
+                .title {
+                    font-size: 15px;
+                    color: #000;
+                }
+                .desc {
+                    margin-top: 8px;
+                    line-height: 1.4;
+                    font-size: 14px;
+                    color: #646464;
+                }
+            }
+            .wechat-qr {
+                padding: 12px 16px;
+                .title {
+                    font-size: 15px;
+                }
+                .qr-img {
+                    margin-top: 9px;
+                    height: 95px;
+                    background: url(http://101.37.32.66:5001/img/myqrcode.02a69146.png) no-repeat center 0;
+                    background-size: contain;
+                    border-radius: 2px;
+                }
+            }
+        }
+        .section.announcement {
+            margin-bottom: 10px;
+            .announcement-content {
+                padding: 15px 16px;
+                display: flex;
+                align-items: center;
+                .announcement-icon{
+                    height: 32px;
+                    width: auto;
+                    font-size: 30px;
+                    color: @theme-color;
+                }
+                span {
+                    margin-left: 10px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #000;
+                }
+            }
+        }
+        .help {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .items {
+                flex-grow: 1;
+                display: flex;
+                height: 90px;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                color: #71777b;
+                // img {
+                //     width: auto;
+                //     height: 28px;
+                // }
+                .help-icon{
+                    font-size: 28px;
+                    color: @theme-color;
+                }
+                .title {
+                    margin-top: 8px;
+                    font-size: 14px;
+                }
+            }
+            .items:first-child {
+                position: relative;
+            }
+        }
+    }
+
+}
+.aside.top .sticky-section {
+    top: 67px;
+}

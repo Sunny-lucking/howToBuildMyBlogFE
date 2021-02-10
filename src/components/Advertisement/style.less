@@ -1,0 +1,26 @@
+@import 'theme.less';
+.advertisement {
+    background-color: #fdfdfe;
+    padding: 40px 5px;
+    position: relative;
+    border-top-left-radius: 5px;
+    width: 20rem;
+    .advertisement-title {
+        padding: 5px 10px;
+        background-color: @theme-color;
+        color: #fff;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-top-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: 100%;
+    }
+    .advertisement-img {
+        width: 80%;
+        height: auto;
+        margin-left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,150 @@
+.book-item{
+    .item {
+        display: flex;
+        padding: 25px;
+        box-sizing: border-box;
+        background-color: #fff;
+        position: relative;
+        .poster {
+            width: 100px;
+            height: 140px;
+            flex-shrink: 0;
+            box-shadow: 3px 4px 12px 0 rgba(0,0,0,.2);
+            overflow: hidden;
+            background-color: #ccc;
+            .poster-img {
+                height: 100%;
+                // width: 100%;
+                width: auto;
+            }
+        }
+        .info {
+            position: relative;
+            flex-grow: 1;
+            overflow: hidden;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #2e3135;
+            padding-left: 22px;
+            .title {
+                color: inherit;
+                font-size: 20px;
+                font-weight: 400;
+            }
+            .desc {
+                margin-top: 5px;
+                line-height: 20px;
+                height: 20px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                color: #71777c;
+            }
+            .author {
+                display: flex;
+                align-items: center;
+                margin-top: 6px;
+                overflow: hidden;
+                white-space: nowrap;
+                .author-info {
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    .xiaoce-user {
+                        display: inline-flex;
+                        align-items: center;
+                        color: #000;
+                        .hero {
+                            width: 26px;
+                            height: 26px;
+                            border-radius: 50%;
+                            margin-right: 8px;
+                            background-position: 50%;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+                        .username {
+                            font-size: 1.25rem;
+                            font-weight: 600;
+                            color: #2e3135;
+                            .name {
+                                display: inline-block;
+                                vertical-align: top;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                            .rank {
+                                margin-left: .33rem;
+                                vertical-align: middle;
+                            }
+                        }
+                        .author-name {
+                            color: #000;
+                            font-weight: 400;
+                        }
+                    }
+                }
+                .author-desc {
+                    color: #71777c;
+                    flex-grow: 1;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    .selfDescription {
+                        margin-left: 10px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+            .other {
+                margin-top: 6px;
+                display: flex;
+                align-items: center;
+                .price {
+                    color: #ed7b11;
+                    font-size: 18px;
+                    margin-right: 15px;
+                    display: inline-flex;
+                    align-items: center;
+                    cursor: pointer;
+                }
+                span.message {
+                    opacity: .6;
+                    font-size: 13px;
+                    color: #71777c;
+                }
+            }
+        }
+        .m-aside {
+            min-width: 80px;
+            margin-left: 10px;
+            flex-shrink: 0;
+            align-self: center;
+            display: none;
+            z-index: 3;
+        }
+    }
+
+}
+
+.book-item:not(:last-child) {
+    border-bottom: 1px solid #e6e8e8;
+}
+
+.modal-container{
+    
+    .ant-modal-body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    }
+   
+}

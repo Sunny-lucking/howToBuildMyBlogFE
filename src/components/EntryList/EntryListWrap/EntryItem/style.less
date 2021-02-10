@@ -1,0 +1,170 @@
+@import "theme.less";
+.entry{
+    .entry-link {
+        cursor: pointer;
+        .content-box {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            .info-box {
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-width: 0;
+                .meta-row {
+                    font-size: 1rem;
+                    color: #b2bac2;
+                    .meta-list {
+                        display: flex;
+                        align-items: baseline;
+                        white-space: nowrap;
+                        .item.username {
+                            display: flex;
+                            align-items: baseline;
+                            .user-popover-box {
+                                display: inline;
+                            }
+                        }
+                    }
+                    .meta-list .item:not(:last-child):after {
+                        content: "·";
+                        margin: 0 .4em;
+                        color: #b2bac2;
+                    }
+                    .meta-list .item.clickable:hover a{
+                        color: @theme-color;
+                    }
+                    .meta-list .item .tag:hover {
+                        color: @theme-color;
+                    }
+                }
+                .title-row {
+                    margin: .5rem 0 1rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    .title {
+                        font-size: 1.4rem;
+                        font-weight: 600;
+                        line-height: 1.2;
+                        color: #2e3135;
+                    }
+                    .title:visited {
+                        color: #909090; 
+                    }
+                }
+                .action-row{
+                    .action-list {
+                        display: inline-flex;
+                        white-space: nowrap;
+                    }
+                    .action-list>.item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: relative;
+                        padding: 0 .8rem;
+                        height: 2rem;
+                        font-size: 1.083rem;
+                        line-height: 1;
+                        white-space: nowrap;
+                        color: #b2bac2;
+                        border-radius: 1px;
+                        border: 1px solid #edeeef;
+                        .title-box {
+                            display: flex;
+                            align-items: center;
+                            padding: 0 .8rem;
+                            height: 100%;
+                        }
+                        .count {
+                            color: #b2bac2;
+                            margin-left: .2em;
+                            font-weight: 700;
+                        }
+                    }
+                    .action-list>.item.like {
+                        padding: 0;
+                    }
+                    .action-list>.item.like.liked {
+                        color: #1dc400;
+                        .title-box{
+                            color: #1dc400;
+                            span{
+                                color: #1dc400;
+                            }
+                        }
+                        
+                    }
+                    .action-list>.item.comment {
+                        margin-left: -1px;
+                        padding: 0;
+                    }
+                    .action-list>.item.clickable:hover, .action-list>.item.more .more-list .item:hover {
+                        background-color: #f7f8fa;
+                    }
+                    .action-list>.item.more {
+                        margin-left: -1px;
+                       .more-list {
+                            position: absolute;
+                            top: 48%;
+                            left: 0;
+                            margin-top: 1rem;
+                            min-width: 8rem;
+                            font-size: .9em;
+                            white-space: nowrap;
+                            color: #8f969c;
+                            background-color: #fff;
+                            box-shadow: 0 1px 2px 0 #e0e4e9;
+                            border: 1px solid rgba(217,222,224,.99);
+                            display: none;
+                            z-index: 10;
+                            .item {
+                                padding: .8rem .9rem;
+                            }
+                        }
+                    }
+                    .action-list>.item.more:hover{
+                        .more-list{
+                            display: block;
+                        }
+                    }
+                   
+                }
+            }
+        }
+    }
+}
+
+.entry{
+    .entry-link{
+        .content-box {
+            .info-box{
+                .action-row{
+                    .action-list>.item.more{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+.entry:hover{
+    .entry-link{
+        .content-box {
+            .info-box{
+                .action-row{
+                    .action-list>.item.more{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 关键字高亮
+.keyword{
+    color: rgb(240, 53, 53)
+}

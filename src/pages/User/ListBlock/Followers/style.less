@@ -1,0 +1,96 @@
+.concern-list-box {
+    background-color: #fff;
+    .sub-header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0 2.4rem;
+        height: 4.167rem;
+        white-space: nowrap;
+        border-bottom: 2px solid rgba(230,230,231,.5);
+        .sub-header-title {
+            margin-right: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #000;
+        }
+        .sub-type-box {
+            margin-left: auto;
+            .sub-type {
+                position: relative;
+                padding: 1rem 0;
+                font-size: 1.167rem;
+                color: #72777b;
+                
+            }
+            .sub-type:not(:last-child) {
+                margin-right: 2rem;
+            }
+            .sub-type:not(:last-child):after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: -1rem;
+                margin-top: -.5em;
+                width: 1px;
+                height: 1em;
+                background-color: #b2bac2;
+                opacity: .5;
+            }
+            .sub-type.active{
+                color: #000;
+            }
+            
+        }
+    }
+    .tag-list{
+        .item:not(:last-child) {
+            border-bottom: 1px solid rgba(230,230,231,.5);
+        }
+        .user {
+            position: relative;
+            box-sizing: border-box;
+            .link {
+                display: flex;
+                align-items: center;
+                padding: .5rem 2.4rem;
+                min-height: 7rem;
+                .avatar {
+                    flex: 0 0 auto;
+                    margin-right: 1.667rem;
+                    width: 3.75rem;
+                    height: 3.75rem;
+                    border-radius: 50%;
+                }
+                .info-box {
+                    flex: 1 1 auto;
+                    min-width: 0;
+                    .username {
+                        font-size: 1.25rem;
+                        font-weight: 600;
+                        color: #2e3135;
+                        .name {
+                            display: inline-block;
+                            vertical-align: top;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+                .follow-btn {
+                    flex: 0 0 auto;
+                    margin: 0 0 0 1rem;
+                    padding: 0;
+                    width: 7.5rem;
+                    height: 2.5rem;
+                    font-size: 1rem;
+                    color: #92c452;
+                    background-color: #fff;
+                    border: 1px solid #92c452;
+                    border-radius: 2px;
+                }
+            }
+        }
+    }
+}

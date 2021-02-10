@@ -1,0 +1,43 @@
+.pin-item-container{
+    .pin {
+        display: flex;
+        justify-content: space-between;
+        .content-box {
+            display: flex;
+            align-content: space-between;
+            flex-direction: column;
+            .content {
+                color: #2e3135;
+                font-size: 1.15rem;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                -webkit-line-clamp: 2;
+                max-height: 3.5rem;
+                max-width: 22rem;
+                max-height: 3em;
+            }
+            .content.with-picture {
+                max-width: 16rem;
+            }
+        }
+        .image-box {
+            min-width: 5.67rem;
+            height: 5.67rem;
+            margin-left: 1rem;
+            border-radius: 4px;
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .stat {
+            color: #76797e;
+            font-size: 1.02rem;
+            margin-top: auto;
+        }
+    }
+      
+}
+      
+

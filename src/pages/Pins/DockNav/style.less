@@ -1,0 +1,56 @@
+
+@import "theme.less";
+.shadow {
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+}
+.dock {
+    width: 112px;
+}
+.dock, .stream {
+    margin-right: 15px;
+}
+.dock-nav {
+    max-width: 9.33rem;
+    border-radius: .2rem;
+    background-color: #fff;
+    position: fixed;
+    top: 6.67rem;
+    width: 9.33rem;
+    transition: all .2s linear;
+    .nav-list {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1.33rem 1rem;
+        .nav-item {
+            position: relative;
+            cursor: pointer;
+        }
+        .nav-item {
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            height: 2.58rem;
+            line-height: 2.58rem;
+            text-align: center;
+            font-size: 1.16rem;
+            padding: 0 .5rem;
+            border-radius: .25rem;
+            transition: background-color .2s,color .2s;
+            color: #909090;
+            a{
+                color: #909090;
+            }
+        }
+        .nav-item.active {
+            background-color: @theme-color;
+            color: #fff;
+            &>a {
+                color: #fff;
+            }
+        }
+    }
+}

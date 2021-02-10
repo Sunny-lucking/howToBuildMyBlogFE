@@ -1,0 +1,76 @@
+.survey-page {
+    min-width: 800px;
+    min-height: 100%;
+    background: #ebf3fd;
+    position: relative;
+    background-color: rgba(242,242,242,1);
+    .survey-container {
+        width: 1000px;
+        margin: 0 auto;
+        overflow: hidden;
+        z-index: 10;
+        position: relative;
+        .survey-header {
+            padding: 108px 72px 64px 72px;
+            text-align: center;
+            .top-tips-wrap {
+                text-align: left;
+                position: fixed;
+                top: 0;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                transform: translateX(-50%);
+                z-index: 10;
+                -webkit-transition: opacity 0.2s;
+                transition: opacity 0.2s;
+            }
+            .page-cover-pic {
+                height: 150px;
+                margin-top: 10px;
+                margin-bottom: 40px;
+                background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170312%2Fe2eaaac02fce42beb7e60c7de920380a.gif&refer=http%3A%2F%2Fimg.mp.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1615206217&t=47c298ceb06b04a03baefb47382c81c2);
+                background-size: cover;
+            }
+            .survey-header-title {
+                margin-top: 10px;
+                font-size: 30px;
+            }
+            .survey-header-subtitle {
+                margin-top: 20px;
+                font-size: 16px;
+                .skin strong {
+                    color: rgba(40,99,243,1);
+                }
+            }
+        }
+        .survey-main {
+            position: relative;
+            padding: 34px 72px 84px;
+            margin: 0 auto;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            overflow: hidden;
+            background-color: rgba(255,255,255,1);
+            .progress {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                padding: 14px 16px;
+                background-color: rgba(255,255,255,1);
+            }
+        }
+        .copyright {
+            padding: 32px 0 40px;
+            text-align: center;
+            color: rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 10;
+            a {
+                color: rgba(0,0,0,0.3);
+            }
+        }
+    }
+}

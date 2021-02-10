@@ -1,0 +1,118 @@
+.item:not(:last-child) .user-content-box {
+    border-bottom: 1px solid #f1f1f1;
+}
+.sub-comment {
+    position: relative;
+    padding: 1rem 0 0;
+    .sub-comment-content-row {
+        display: flex;
+        align-items: flex-start;
+        .sub-comment-content-box {
+            display: flex;
+            width: 100%;
+            .popover {
+                height: 33px;
+                .avatar {
+                    width: 2.667rem;
+                    height: 2.667rem;
+                    border-radius: 50%;
+                }
+            }
+            .user-popover-box {
+                display: inline-block;
+            }
+            .user-content-box {
+                margin-left: .833rem;
+                margin-right: 1rem;
+                padding-bottom: 12px;
+                font-size: 1.083rem;
+                color: #17181a;
+                width: 100%;
+                .profie {
+                    display: flex;
+                    .user-popover-box {
+                        display: inline-block;
+                        .username {
+                            font-weight: 400;
+                            font-size: 1.083rem;
+                            color: #333;
+                            margin-right: 4px;
+                            .name {
+                                display: inline-block;
+                                vertical-align: top;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                            .rank {
+                                margin-left: .33rem;
+                                vertical-align: middle;
+                            }
+                            
+                            .author-badge-text {
+                                margin-left: 4px;
+                            }
+                        }
+                        .position {
+                            color: #8a9aa9;
+                            font-size: 13px;
+                            font-weight: 400;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            max-width: 13.5rem;
+                        }
+                    }
+                    .position {
+                        color: #8a9aa9;
+                        font-size: 13px;
+                        font-weight: 400;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        max-width: 13.5rem;
+                    }
+                }
+                .content-box {
+                    display: inline-block;
+                    margin-top: .5rem;
+                    overflow: hidden;
+                    .content {
+                        white-space: pre-wrap;
+                        color: #505050;
+                        line-height: 1.833rem;
+                    }
+                }
+                .sub-comment-stat-box {
+                    display: flex;
+                    margin-top: 7px;
+                    font-size: 13px;
+                    color: #8a93a0;
+                    .delete {
+                        cursor: pointer;
+                        display: none;
+                    }
+                    .sub-comment-action-box {
+                        flex: 0 0 auto;
+                        display: flex;
+                        justify-content: space-between;
+                        margin-left: auto;
+                        min-width: 8.8rem;
+                        font-size: 1.083rem;
+                        color: #8a93a0;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        .action {
+                            display: flex;
+                            align-items: center;
+                            margin-left: .5rem;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
