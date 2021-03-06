@@ -26,12 +26,12 @@ function Menu(props: MenuProps) {
                 </div>
                 <div className="item-group">
                     <a href={`/juejin/user/${user?._id}/posts`} className="item">我的主页</a>
-                    <a href="/user/1204720476893064/likes" className="item">我喜欢的</a>
-                    <a href="/user/1204720476893064/collections" className="item"> 我的收藏集 </a>
-                    <a href="/subscribe/subscribed" className="item">标签管理</a>
+                    <a href={`/juejin/user/${user?._id}/fans`} className="item">我的关注</a>
+                    <a href={`/juejin/user/${user?._id}/collects`} className="item"> 我的收藏集 </a>
+                    {/* <a href="/subscribe/subscribed" className="item">标签管理</a> */}
                 </div>
                 <div className="item-group">
-                    <a href="/user/settings/profile" className="item" rel="noreferrer">设置</a>
+                    {/* <a href="/user/settings/profile" className="item" rel="noreferrer">设置</a> */}
                 </div>
                 {
                     props.isHome && user._id &&

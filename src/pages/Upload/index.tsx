@@ -52,22 +52,25 @@ function Book() {
         setFileList(newFileList);
     };
     const onFinish = async (values: any) => {
-        console.log('Received values of form: ', values);
         const formData = new FormData()
         formData.append(action.title, values[action.title])
         formData.append(action.desc, values[action.desc])
         formData.append(action.cover, values[action.cover][0].originFileObj)
-        if (type==="book") {  // 添加book类 专有的字段
+        if (type === "book") {  // 添加book类 专有的字段
             formData.append("zipFile", values.zipFile[0].originFileObj)
-        }else if(type ==="event"){  // 添加event类 专有的字段
+        } else if (type === "event") {  // 添加event类 专有的字段
             formData.append("eventLink", values.eventLink)
-            console.log(values.eventTime,new Date());
-            
             formData.append("eventTime", moment(values.eventTime).format("MM-DD"))
         }
-        debugger
         const result: any = await action.submit(formData)
         message.success(result.data.msg)
+        setTimeout(() => {
+            if (type === "book") {
+                history.push("/juejin/books")
+            } else {
+                history.push("/juejin/event")
+            }
+        }, 1000)
     };
     const onPreview = async (file: any) => {
         let src = file.url;
@@ -92,9 +95,14 @@ function Book() {
                 <div className="survey-header">
                     <div className="top-tips-wrap"></div>
                     <div className="page-cover-pic"></div>
-                    <div className="survey-header-title">掘金 － 活动页面合作</div>
-                    <div className="survey-header-subtitle">您好！感谢您对掘金活动合作的兴趣。<strong>请仔细阅读我们的素材要求</strong>，
-               并提供符合要求的页面素材和贵公司的基本资料。期待与您的合作！</div>
+                    {
+                        type === "book" ?
+                            <div className="survey-header-title"> 上传资料页面</div> :
+                            <div className="survey-header-title"> 发布活动页面</div>
+
+                    }
+                    <div className="survey-header-subtitle">您好！感谢您对共享的兴趣。<strong>请仔细阅读我们的素材要求</strong>，
+               期待与您的合作！</div>
                 </div>
                 <div className="survey-main s-main ">
                     <div className="progress"></div>

@@ -7,7 +7,8 @@ import "./style.less"
 import {onWatchScroll} from "constants/utils"
 import {useEffect, useRef} from "react"
 interface SlideProps{
-    authorInfo:any
+    authorInfo:any,
+    relatedArticle: any,
 }
 function SideBar(props:SlideProps) {
 
@@ -17,12 +18,13 @@ function SideBar(props:SlideProps) {
     },[])
     
     const sliderRef:any = useRef()
-   
+    console.log(props);
     return (
         <div className="sidebar sidebar" ref={sliderRef}>
             <Profile authorInfo={props.authorInfo}/>
             <Advertisement />
             <RelatedPin
+                relatedList={props.relatedArticle}
                 title="相关文章"
             />
             <div className="sticky-block-box">

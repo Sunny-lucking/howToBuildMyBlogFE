@@ -5,6 +5,7 @@ import { throttle } from "constants/utils"
 import { GetArticleList } from "service/article"
 import { useSetState } from "ahooks"
 import {ArticleVO} from "models"
+import { Empty, Skeleton } from "antd"
 interface PostsProps {
     userId: string,
     match:any,
@@ -54,6 +55,8 @@ function Posts(props: PostsProps) {
                 </div>
             </div>
             <EntryListWrap articleList={articleState.articleList}/>
+        
+               
         </div>
 
     )

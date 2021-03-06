@@ -8,8 +8,6 @@ interface BookItemProps {
 function BookItem(props:BookItemProps) {
     const [state, setState] = useSetState({
         isModalVisible: false,
-        pinValue: '',
-        tagIndex: -1,
     })
     const {book} = props
     const history = useHistory()
@@ -27,14 +25,11 @@ function BookItem(props:BookItemProps) {
                     <div className="author">
                         <div className="author-info">
                             <div>
-                                {/* <img data-v-3ce2bd44="" src="https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/e62ad4bea75d27e49ccae4349b801f49~300x300.image" alt="JowayYoung的头像" className="lazy avatar hero" data-src="https://sf1-ttcdn-tos.pstatp.com/img/user-avatar/e62ad4bea75d27e49ccae4349b801f49~300x300.image" /> */}
                                 <div className="username author-name">
                                     <span className="name" style={{ maxWidth: '128px' }}>
                                         朴灵
                                     </span>
-                                    {/* <a href="/book/5c90640c5188252d7941f5bb/section/5c9065385188252da6320022" target="_blank" rel="" className="rank">
-                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDIzIDE0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGQTAwMCIgZD0iTTMgMWgxN2EyIDIgMCAwIDEgMiAydjhhMiAyIDAgMCAxLTIgMkgzYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yeiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0zIDRoMnY3SDN6TTggNmgybDIgNWgtMnoiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTQgNmgtMmwtMiA1aDJ6TTMgOWg1djJIM3pNMTggOGgydjNoLTJ6TTE1IDNoNXYyaC01ek0xNSA5aDN2MmgtM3pNMTYgNmgzdjJoLTN6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE4IDZoMnYyaC0yek0xNSA1aDJ2M2gtMnoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="lv-5" />
-                                    </a> */}
+                                  
                                 </div>
                             </div>
                         </div>
@@ -52,7 +47,6 @@ function BookItem(props:BookItemProps) {
                         </div>
                         <div className="messages">
                             <span className="message">
-                                {/* <span >16小节</span> */}
                             </span>
                             <span className="message">
                                 <span >1976</span>
@@ -89,13 +83,11 @@ function BookItem(props:BookItemProps) {
         })
     }
     function download(){
-        var a = document.createElement('a');
-        // var url = window.URL.createObjectURL();
-        var filename = '';
-        a.href = "/深入浅出Node.js-朴灵.pdf";
-        a.download = filename;
+        let a = document.createElement('a');
+        a.href = "http://localhost:5001"+book.zipFileUrl;
+        // a.download = book.fileTitle;
+        a.download = "1111"
         a.click();
-        // window.URL.revokeObjectURL(url);
     }
     async function SendCode(value: any) {
         if (true === true) {

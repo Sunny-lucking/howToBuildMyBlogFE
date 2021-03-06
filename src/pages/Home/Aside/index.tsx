@@ -5,6 +5,7 @@ import { GetAuthorList } from "service/user"
 import { useSetState } from "ahooks"
 import { useEffect } from "react"
 import {NavLink} from "react-router-dom"
+import {notification} from "antd"
 function Aside() {
 
     const [state, setState] = useSetState({
@@ -41,7 +42,7 @@ function Aside() {
                             ))
                         }
 
-                        <a href="/recommendation/authors/recommended" className="item" target="_blank">
+                        <a href="/juejin/userRank" className="item" target="_blank">
                             <div className="more">
                                 <span>完整榜单</span>
                                 <RightOutlined />
@@ -133,6 +134,10 @@ function Aside() {
             setState({
                 authorInfoList: result.data.userList
             })
+        }else{
+            notification.open({
+                message: result.data.msg,
+            });
         }
     }
 }

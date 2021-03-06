@@ -1,22 +1,23 @@
 import "./style.less"
 import RelatedPinItem from "./RelatedPinItem"
-function RelatedPin(props:any) {
+interface Iprops{
+    relatedList:any,
+    title:string,
+}
+function RelatedPin(props: Iprops) {
     return (
         <div className="related-pin-block pin-block">
             <header >{props.title}</header>
             <ul className="pin-list">
-                <li className="item">
-                    <RelatedPinItem/>
-                </li>
-                <li className="item">
-                    <RelatedPinItem/>
-                </li>
-                <li className="item">
-                    <RelatedPinItem/>
-                </li>
-                <li className="item">
-                    <RelatedPinItem/>
-                </li>
+                {
+                    props.relatedList?.map((item: any, index: number) => (
+                        <li className="item" key={item._id}>
+                            <RelatedPinItem relatedItem={item} title={props.title}/>
+                        </li>
+                    ))
+                }
+
+               
             </ul>
         </div>
     )

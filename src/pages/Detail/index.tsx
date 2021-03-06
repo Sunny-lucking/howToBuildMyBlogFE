@@ -4,7 +4,7 @@ import SideBar from './SideBar'
 import Suspended from "./Suspended"
 import Comment from "components/Comment"
 import EntryList from "components/EntryList"
-import { GetArticleDetail } from "service/article"
+import { GetArticleDetail,GetArticleList } from "service/article"
 import { GetAuthorInfo } from "service/user"
 import { AddComment, GetComment } from "service/comment"
 import queryString from "query-string"
@@ -15,9 +15,11 @@ import moment from "moment"
 import { getTagNameFromCategoryList } from "constants/utils"
 import StateStore from "store"
 import { useSelector } from "react-redux"
+import { notification} from "antd"
 interface State {
     article: any,
     authorInfo: any,
+    relatedArticle: any,
 }
 function Detail() {
     let history = useHistory()
@@ -29,20 +31,22 @@ function Detail() {
         authorInfo: {
 
         },
+        relatedArticle:[]
     })
     useEffect(() => {
         setArticleDetail()
     }, [])
     useEffect(() => {
-        setAuthorInfo(article?.user_id)
+        article?.user_id && setAuthorInfo(article?.user_id)
+        article?.user_id && setRelatedArticle(article?.user_id)
     }, [state.article?.user_id])
-    const { article, authorInfo } = state
+    const { article, authorInfo,relatedArticle } = state
     return (
         <div className="view column-view">
             <div className="main-area article-area shadow">
                 <article className="article">
                     <div className="author-info-block">
-                        <a href="/user/2664871913078168" target="_blank" rel="" className="avatar-link">
+                        <a href={`/juejin/user/${authorInfo?._id}/posts`} target="_blank" rel="" className="avatar-link">
                             <img src={authorInfo?.avatar_url} className="lazy avatar avatar" alt="12" />
                         </a>
                         <div className="author-info-box">
@@ -52,7 +56,7 @@ function Detail() {
                                         {authorInfo?.git_name}
                                     </span>
                                     <a href="/book/5c90640c5188252d7941f5bb/section/5c9065385188252da6320022" target="_blank" rel="" className="rank">
-                                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDIzIDE0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iIzU5OURGRiIgZD0iTTMgMWgxN2EyIDIgMCAwIDEgMiAydjhhMiAyIDAgMCAxLTIgMkgzYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yeiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0zIDRoMnY3SDN6TTggNmgybDIgNWgtMnoiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTQgNmgtMmwtMiA1aDJ6TTMgOWg1djJIM3pNMTUgM2g1djJoLTV6TTE4IDVoMnYxaC0yek0xOCA4aDJ2MWgtMnpNMTYgNmg0djJoLTR6TTE1IDloNXYyaC01eiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="lv-3" />
+                                        {/* <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDIzIDE0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iIzU5OURGRiIgZD0iTTMgMWgxN2EyIDIgMCAwIDEgMiAydjhhMiAyIDAgMCAxLTIgMkgzYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yeiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0zIDRoMnY3SDN6TTggNmgybDIgNWgtMnoiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTQgNmgtMmwtMiA1aDJ6TTMgOWg1djJIM3pNMTUgM2g1djJoLTV6TTE4IDVoMnYxaC0yek0xOCA4aDJ2MWgtMnpNMTYgNmg0djJoLTR6TTE1IDloNXYyaC01eiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="lv-3" /> */}
                                     </a>
                                 </div>
                             </div>
@@ -84,7 +88,7 @@ function Detail() {
                 </div>
                 <Comment commentTypeID={article._id} authorID={article.user_id} commentType="article" />
             </div>
-            <SideBar authorInfo={authorInfo} />
+            <SideBar authorInfo={authorInfo} relatedArticle={relatedArticle}/>
             <Suspended article={article} onReLoadArticleList={()=>setArticleDetail()}/>
             <div className="main-area recommended-area shadow">
                 <div className="recommended-entry-list-title">
@@ -104,12 +108,25 @@ function Detail() {
             })
         }
     }
+    async function setRelatedArticle(user_id:string) {
+        const result: any = await GetArticleList({ user_id })
+        console.log(result.data.articleList);
+        if (result.data.code === 0) {
+            setState({
+                relatedArticle: result.data.articleList
+            })
+        }
+    }
     async function setAuthorInfo(user_id: string) {
         const result: any = await GetAuthorInfo({ _id: user_id })
         if (result.data.code === 0) {
             setState({
                 authorInfo: result.data.user
             })
+        }else{
+            notification.open({
+                message: result.data.msg,
+            });
         }
     }
 }

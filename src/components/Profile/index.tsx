@@ -18,37 +18,37 @@ function Profile(props:ProfileProps) {
     return (
         <div className="profile-box shadow">
             <div className="profile">
-                <a href={`/juejin/user/${authorInfo._id}/posts`} target="_blank" rel="">
-                    <img src={authorInfo?.avatar_url} alt="阳光是sunny的头像" className="lazy avatar avatar" data-src="https://user-gold-cdn.xitu.io/2020/4/30/171c7ef8dbbbc1bf?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1" />
+                <a href={`/juejin/user/${authorInfo?._id}/posts`} target="_blank" rel="">
+                    <img src={authorInfo?.avatar_url} alt={`${authorInfo?.git_name}`} className="lazy avatar avatar" />
                 </a>
                 <div className="user-info">
-                    <a href={`/juejin/user/${authorInfo._id}/post`} target="_blank" rel="" className="username ellipsis">{authorInfo?.git_name} </a>
+                    <a href={`/juejin/user/${authorInfo?._id}/post`} target="_blank" rel="" className="username ellipsis">{authorInfo?.git_name} </a>
                     <div className="position ellipsis">{authorInfo?.company} @ {authorInfo?.location}</div>
                 </div>
             </div>
             <ul className="stat-list">
-                <a href={`/juejin/user/${authorInfo._id}/pins`} target="_blank" rel="" className="item">
+                <a href={`/juejin/user/${authorInfo?._id}/pins`} target="_blank" rel="" className="item">
                     <div className="title">沸点</div>
-                    <div className="count">{state.pinList?.length}</div>
+                    <div className="count">{state.pinList?.length || 0}</div>
                 </a>
-                <a href={`/juejin/user/${authorInfo._id}/fans`} target="_blank" rel="" className="item">
+                <a href={`/juejin/user/${authorInfo?._id}/fans`} target="_blank" rel="" className="item">
                     <div className="title">关注</div>
-                    <div className="count">{authorInfo?.fans?.length}</div>
+                    <div className="count">{authorInfo?.fans?.length || 0}</div>
                 </a>
-                <a href={`/juejin/user/${authorInfo._id}/followers`} target="_blank" rel="" className="item">
+                <a href={`/juejin/user/${authorInfo?._id}/followers`} target="_blank" rel="" className="item">
                     <div className="title">关注者</div>
-                    <div className="count">{authorInfo?.followers?.length}</div>
+                    <div className="count">{authorInfo?.followers?.length || 0}</div>
                 </a>
             </ul>
         </div>
     )
     async function setPin() {
         const result: any = await GetPin({
-            authorId:authorInfo._id
+            authorId:authorInfo?._id
         })
         if (result.data.code !== 0) {
             notification.open({
-                message: '获取评论失败',
+                message: result.data.msg,
             });
         } else {
             setState({

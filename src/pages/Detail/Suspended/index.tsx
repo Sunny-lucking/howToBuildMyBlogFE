@@ -3,7 +3,7 @@ import { CancelPraiseArticle, PraiseArticle, CancelFavoriteArticle, FavoriteArti
 import { message, notification } from "antd"
 import { useSelector } from "react-redux"
 import StateStore from "store"
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom"
 interface Suspended {
     article: any,
     onReLoadArticleList: () => {}
@@ -14,24 +14,27 @@ function Suspended(props: Suspended) {
     const history = useHistory()
     return (
         <div className="article-suspended-panel article-suspended-panel">
+            {/* 点赞 */}
             <div
                 data-badge={props.article?.praiseList?.length + ''}
                 className={["like-btn panel-btn like-adjust with-badge", props?.article?.praiseList?.includes(user?._id) ? "active" : ''].join(" ")}
                 onClick={props?.article?.praiseList?.includes(user?._id) ? () => cancelPraiseArticle(props?.article?._id) : () => praiseArticle(props?.article?._id)}></div>
-            <div
-                className="comment-btn panel-btn comment-adjust with-badge"
-                data-badge={props?.article?.commentCount + ''}></div>
-            <div
-                className={["collect-btn panel-btn", props?.article?.favoriteList?.includes(user?._id)?"active":""].join(' ')}
                 
-                onClick={ props?.article?.favoriteList?.includes(user?._id)?() => { cancelFavoriteArticle(props.article._id) }:() => { favoriteArticle(props.article._id) }}></div>
-            <div className="report-btn share-btn panel-btn"></div>
+            {/* 评论 */}
+            <a  href="#comment-list-box"
+                className="comment-btn panel-btn comment-adjust with-badge"
+                data-badge={props?.article?.commentCount + ''}></a>
+            <div
+                className={["collect-btn panel-btn", props?.article?.favoriteList?.includes(user?._id) ? "active" : ""].join(' ')}
+
+                onClick={props?.article?.favoriteList?.includes(user?._id) ? () => { cancelFavoriteArticle(props.article._id) } : () => { favoriteArticle(props.article._id) }}></div>
+            {/* <div className="report-btn share-btn panel-btn"></div> */}
             <div className="share-title">分享</div>
-            <div className="weibo-btn share-btn panel-btn" onClick={()=>{shareToMicroblog(props.article)}}></div>
-            <div className="qq-btn share-btn panel-btn" onClick={()=>{shareToQQ(props.article)}}></div>
-            <div className="wechat-btn share-btn panel-btn">
+            <div className="weibo-btn share-btn panel-btn" onClick={() => { shareToMicroblog(props.article) }}></div>
+            <div className="qq-btn share-btn panel-btn" onClick={() => { shareToQQ(props.article) }}></div>
+            {/* <div className="wechat-btn share-btn panel-btn">
                 <img src="/wxcode.svg" alt="" className="wechat-qr-code-img shadow" />
-            </div>
+            </div> */}
         </div>
     )
     // 取消收藏文章
@@ -85,12 +88,12 @@ function Suspended(props: Suspended) {
     }
 
     // 分享到微博
-    function shareToMicroblog(article:any) {
+    function shareToMicroblog(article: any) {
         //自定义内容
         const share = {
             title: article.title,
             image_url: ["https://avatars.githubusercontent.com/u/44115602?v=4"],
-            share_url: history.location.pathname +history.location.search
+            share_url: history.location.pathname + history.location.search
         };
         //跳转地址
         window.location.href = (
@@ -104,12 +107,12 @@ function Suspended(props: Suspended) {
         );
     }
     //分享到QQ好友(PC端可用)
-    function shareToQQ(article:any) {
+    function shareToQQ(article: any) {
         //此处分享链接内无法携带图片
         const share = {
             title: article.title,
             desc: article.content.slice(100),
-            share_url:  history.location.pathname +history.location.search
+            share_url: history.location.pathname + history.location.search
         };
         window.location.href = (
             "https://connect.qq.com/widget/shareqq/index.html?url=" +

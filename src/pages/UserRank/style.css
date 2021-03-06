@@ -1,0 +1,15 @@
+.main-container > .view {
+  margin-top: 1.767rem;
+}
+.main-container > .view .main-area {
+  position: relative;
+  margin-bottom: 10rem;
+  width: 640px;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+.main-container > .view .shadow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}

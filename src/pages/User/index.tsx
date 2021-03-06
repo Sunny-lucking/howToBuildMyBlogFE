@@ -5,6 +5,7 @@ import ListBlock from "./ListBlock"
 import { GetAuthorInfo } from "service/user"
 import { useSetState } from "ahooks"
 import {useEffect} from "react"
+import { notification} from "antd"
 interface State{
     authorInfo: any
 }
@@ -20,8 +21,8 @@ function User(props:any) {
     return (
         <div className="view user-view">
             <div className="major-area">
-              <UserInfo authorInfo={state.authorInfo} onFollowChange={()=>setAuthorInfo(state.authorInfo._id)}/>
-              <ListBlock userId={state.authorInfo._id} route={props.route}/>
+              <UserInfo authorInfo={state.authorInfo} onFollowChange={()=>setAuthorInfo(state.authorInfo?._id)}/>
+              <ListBlock userId={state.authorInfo?._id} route={props.route}/>
             </div >
             <MinorArea authorInfo={state.authorInfo}/>
         </div >
@@ -33,6 +34,10 @@ function User(props:any) {
             setState({
                 authorInfo: result.data.user
             })
+        }else{
+            notification.open({
+                message: result.data.msg,
+            });
         }
     }
 }

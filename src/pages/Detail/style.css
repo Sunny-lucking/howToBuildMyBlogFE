@@ -1,0 +1,154 @@
+.column-view {
+  padding: 0 0 8rem;
+}
+.column-view .shadow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.column-view .main-area {
+  position: relative;
+  width: 700px;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+.column-view .article-area {
+  margin-bottom: 1.5rem;
+  padding: 0 2rem 2rem;
+}
+.column-view .article-area .article {
+  margin-bottom: 3rem;
+  padding: 2rem 0 0;
+}
+.column-view .article-area .article .author-info-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.column-view .article-area .article .author-info-block .avatar-link {
+  font-size: 0;
+}
+.column-view .article-area .article .author-info-block .avatar-link .avatar {
+  display: inline-block;
+  position: relative;
+  background-size: cover;
+  background-color: #eee;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  width: 3.333rem;
+  height: 3.333rem;
+  border-radius: 50%;
+}
+.column-view .article-area .article .author-info-block .author-info-box {
+  min-width: 0;
+  flex-grow: 1;
+  flex: 1;
+  height: 43px;
+}
+.column-view .article-area .article .author-info-block .author-info-box .author-name {
+  height: 22px;
+}
+.column-view .article-area .article .author-info-block .author-info-box .author-name .ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.column-view .article-area .article .author-info-block .author-info-box .author-name .username {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2e3135;
+}
+.column-view .article-area .article .author-info-block .author-info-box .author-name .username .name {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.column-view .article-area .article .author-info-block .author-info-box .author-name .username .rank {
+  margin-left: 0.33rem;
+  vertical-align: middle;
+}
+.column-view .article-area .article .author-info-block .author-info-box .author-name .username {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+}
+.column-view .article-area .article .author-info-block .author-info-box .meta-box {
+  font-size: 1.1rem;
+  color: #909090;
+}
+.column-view .article-area .article .author-info-block .author-info-box .meta-box .time {
+  letter-spacing: 1px;
+}
+.column-view .article-area .article .author-info-block .author-info-box .meta-box .views-count {
+  margin-left: 0.5em;
+}
+.column-view .article-area .article .author-info-block .follow-button {
+  margin: 0 0 0 auto;
+  padding: 0;
+  width: 55px;
+  height: 26px;
+  font-size: 13px;
+  border: 1px solid #6cbd45;
+  color: #6cbd45;
+  background-color: #fff;
+}
+.column-view .article-area .article .article-title {
+  margin: 0.67em 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.column-view .article-area .article .article-content img {
+  width: 100%;
+}
+.column-view .article-area .tag-list-box {
+  margin-bottom: 2rem;
+}
+.column-view .article-area .tag-list-box .tag-list-title {
+  margin-bottom: 2rem;
+  padding: 0 0 0 2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #000;
+  border-left: 6px solid #ddd;
+}
+.column-view .article-area .tag-list-box .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.column-view .article-area .tag-list-box .tag-list .item {
+  display: flex;
+  align-items: center;
+  margin: 0 1.25rem 1rem 0;
+  padding: 0.167rem;
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 2px;
+}
+.column-view .article-area .tag-list-box .tag-list .item .tag-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 2px;
+}
+.column-view .article-area .tag-list-box .tag-list .item .tag-title {
+  padding: 0 0.75rem;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  color: #919191;
+}
+.column-view .recommended-area .recommended-entry-list-title {
+  padding: 1.3rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #909090;
+  border-bottom: 1px solid rgba(178, 186, 194, 0.15);
+}
+.main-container > .view {
+  margin-top: 1.767rem;
+}

@@ -1,7 +1,7 @@
 import {
     PIN_ADD_URL,PIN_LIST_URL,PIN_DELETE_URL,PIN_PRAISE_URL,PIN_CANCEL_PRAISE_URL,
 } from 'constants/serviceUrl';
-import {postFileRequest,getRequest,postRequest} from "utils/request";
+import {postRequest} from "utils/request";
 
 
 export function DeletePin(params: any) {

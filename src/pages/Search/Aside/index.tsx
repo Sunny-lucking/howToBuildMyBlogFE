@@ -5,6 +5,7 @@ import { GetAuthorList } from "service/user"
 import { useSetState } from "ahooks"
 import { useEffect } from "react"
 import {NavLink} from "react-router-dom"
+import {notification} from "antd"
 function Aside() {
 
     const [state, setState] = useSetState({
@@ -133,6 +134,10 @@ function Aside() {
             setState({
                 authorInfoList: result.data.userList
             })
+        }else{
+            notification.open({
+                message: result.data.msg,
+            });
         }
     }
 }

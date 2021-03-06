@@ -6,6 +6,7 @@ import { GetFansList } from "service/user"
 import { useSetState } from "ahooks"
 import { ArticleVO } from "models"
 import { NavLink, withRouter } from "react-router-dom"
+import { Empty, Skeleton } from "antd"
 interface PostsProps {
     userId: string,
     match: any,
@@ -85,6 +86,13 @@ function Fans(props: PostsProps) {
                         ))
                     }
 
+                    {
+                        state.fansList?.length === 0 &&
+                        // <Empty description="没有数据呢"/>
+                        <div style={{ padding: '20px' }}>
+                            <Empty description="没有数据呢" />
+                        </div>
+                    }
 
                 </ul>
             </div>
@@ -102,7 +110,7 @@ function Fans(props: PostsProps) {
                     pageNum: preState.pageNum + 1,
                     fansList: preState.fansList.concat(result.data.fansList)
                 }
-            })
+            })  
         }
 
     }

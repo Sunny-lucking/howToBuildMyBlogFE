@@ -34,7 +34,7 @@ function Event(props: any) {
       <div className="content">
         <div className="events-wrap">
           <Affix offsetTop={500} style={{ position: 'absolute', top: 100, right: -100 }}>
-            <a href="/upload" target="_blank" rel="noopener noreferrer">
+            <a href="/upload?type=event" target="_blank" rel="noopener noreferrer">
               <Tooltip placement="top" title={"发布广告"}>
                 <button title="建议反馈" className="btn meiqia-btn">
                   <BulbOutlined className="event-icon" />

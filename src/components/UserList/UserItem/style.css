@@ -1,0 +1,86 @@
+.user {
+  position: relative;
+  box-sizing: border-box;
+}
+.user .link {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2.4rem;
+  min-height: 7rem;
+  color: #b9c0c8;
+}
+.user .link .avatar,
+.user .link .avatar.xmas:after {
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.user .link .avatar {
+  display: inline-block;
+  position: relative;
+  background-size: cover;
+  background-color: #eee;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.user .link .lazy {
+  position: relative;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.user .link .info-box {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.user .link .info-box .username {
+  font-size: 1.333rem;
+  font-weight: 500;
+  color: #393939;
+}
+.user .link .info-box .username {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2e3135;
+}
+.user .link .info-box .username .name {
+  max-width: 200px;
+}
+.user .link .info-box .username .name {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.user .link .info-box .detail {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.user .link .info-box .detail {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #b9c0c8;
+}
+.user .link .info-box .describe {
+  color: #777d81;
+  font-size: 12px;
+}
+.user .link .info-box .describe,
+.user .link .info-box .detail {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.user .link .follow-btn {
+  flex: 0 0 auto;
+  margin: 0 0 0 1rem;
+  padding: 0;
+  width: 6.6rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  color: #37c701;
+  background-color: #fff;
+  border: 1px solid rgba(55, 199, 1, 0.6);
+  border-radius: 2px;
+}

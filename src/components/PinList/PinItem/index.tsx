@@ -9,15 +9,18 @@ import { DeletePin,PraisePin ,CancelPraisePin} from "service/pin"
 import Comment from "components/Comment"
 import { useSetState, useClickAway } from "ahooks"
 import { useRef } from "react"
+import { useHistory} from "react-router-dom"
+
 interface PinItemProps {
     pinItem: any,
-    onReLoadPinList: () => {} // 当点击删除沸点的时候，触发该事件导致重新请求
+    onReLoadPinList: () => void // 当点击删除沸点的时候，触发该事件导致重新请求
 }
 
 
 function PinItem(props: PinItemProps) {
     const { pinItem } = props
     let user = useSelector((state: StateStore) => state.userStore.user)
+    const history = useHistory()
     const [state, setState] = useSetState({
         isShowComment: false,
     })
@@ -42,13 +45,13 @@ function PinItem(props: PinItemProps) {
                 <div className="pin-header-row">
                     <div className="account-group">
                         <div className="user-popover-box">
-                            <a href="/user/676954893195047" target="_blank" rel="" className="user-link">
-                                <img src="http://localhost:3000/avatar.png" alt="Bzerocoder的头像" className="lazy avatar avatar" data-src="https://user-gold-cdn.xitu.io/2019/6/20/16b74ae27114ed7d?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1" />
+                            <a href={`/juejin/user/${pinItem?.user_id}/posts`} target="_blank" rel="" className="user-link">
+                                <img src={pinItem.user_avatar} alt="Bzerocoder的头像" className="lazy avatar avatar" data-src="https://user-gold-cdn.xitu.io/2019/6/20/16b74ae27114ed7d?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1" />
                             </a>
                         </div>
                         <div className="pin-header-content">
                             <div className="user-popover-box">
-                                <a href="/user/676954893195047" target="_blank" rel="" className="username">{pinItem.user_name}</a>
+                                <a href={`/juejin/user/${pinItem?.user_id}/posts`} target="_blank" rel="" className="username">{pinItem.user_name}</a>
                             </div>
                             <div className="meta-box">
                                 <div className="position ellipsis">{pinItem.user_name}</div>
@@ -61,7 +64,7 @@ function PinItem(props: PinItemProps) {
                     </div>
                     <div className="header-action">
                         {
-                            user?._id.toString() === pinItem.user_id.toString() ?
+                            user?._id?.toString() === pinItem?.user_id?.toString() ?
                                 <Dropdown overlay={menu} placement="bottomCenter">
                                     <EllipsisOutlined style={{ fontSize: 20, cursor: 'pointer' }} />
                                 </Dropdown>
@@ -100,7 +103,7 @@ function PinItem(props: PinItemProps) {
                                 <span className="action-title">{pinItem.commentCount}</span>
                             </div>
                         </div>
-                        <div className="share-action action">
+                        <div className="share-action action" onClick={()=>shareToMicroblog(pinItem)}>
                             <div className="action-title-box">
                                 <ShareAltOutlined />
                                 <span className="action-title">分享</span>
@@ -165,6 +168,26 @@ function PinItem(props: PinItemProps) {
                 message: result.data.msg,
             });
         }
+    }
+
+    // 分享到微博
+    function shareToMicroblog(article:any) {
+        //自定义内容
+        const share = {
+            title: article.content,
+            image_url: ["https://avatars.githubusercontent.com/u/44115602?v=4"],
+            share_url: history.location.pathname +history.location.search
+        };
+        //跳转地址
+        window.location.href = (
+            "https://service.weibo.com/share/share.php?url=" +
+            encodeURIComponent(share.share_url) +
+            "&title=" +
+            share.title +
+            "&pic=" +
+            share.image_url +
+            "&searchPic=true"
+        );
     }
 
 }

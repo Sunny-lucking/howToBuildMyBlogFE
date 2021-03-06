@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom"
 import { onWatchScroll } from "constants/utils"
 import { useHistory } from "react-router-dom";
 import StateStore from "store"
-import { useSetState, useClickAway } from "ahooks"
+import { useSetState, useClickAway ,useKeyPress} from "ahooks"
 import { useSelector } from "react-redux"
 import MenuNav from "components/Menu"
 function Header(props: any) {
@@ -31,7 +31,14 @@ function Header(props: any) {
     setIsShowNavigatorFalse()
   }, coverRef);
 
-
+  // 绑定监听，监听回车键的搜索事件
+  useKeyPress('enter', () => {
+    console.log("entry");
+    console.log(state);
+    debugger
+    
+    onGoToSearch()
+  });
   const menu = (
     <Menu onClick={(e) => { handleMenuClick(e) }}>
       <Menu.Item key="1">
@@ -115,8 +122,10 @@ function Header(props: any) {
       isShowNavigator: !state.isShowNavigator
     })
   }
-
-
+  // 点击回车键，触发搜索事件
+  function onClickEntryKey(){
+    
+  }
   function setIsShowNavigatorFalse() {
     setState({
       isShowNavigator: false
@@ -126,6 +135,7 @@ function Header(props: any) {
     history.push("/editor");
   }
   function onGoToSearch() {
+    debugger
     history.push("/juejin/search?keyWord=" + state.inputValue);
   }
   function setIsVisibleTrue() {

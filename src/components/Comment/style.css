@@ -1,0 +1,37 @@
+.comment-list-box {
+  position: relative;
+  border-top: 1px solid #ebebeb;
+  padding-top: 1.333rem;
+}
+.comment-list-box .comment-list {
+  margin: 1rem 1.666rem 0 0.5rem;
+}
+.comment-list-box .triangle-top {
+  position: absolute;
+  top: 8px;
+  left: 0%;
+  margin: -7px 0 0 -7px;
+}
+.comment-list-box .triangle-top .triangle {
+  position: absolute;
+  margin: auto;
+  top: -6px;
+  left: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  border-right: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  background: #fff;
+}
+.comment-list-box:after,
+.comment-list-box:before {
+  /* display: table; */
+  /* content: ""; */
+  clear: both;
+}

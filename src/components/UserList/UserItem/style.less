@@ -1,0 +1,86 @@
+.user {
+    position: relative;
+    box-sizing: border-box;
+    .link {
+        display: flex;
+        align-items: center;
+        padding: .5rem 2.4rem;
+        min-height: 7rem;
+        color: #b9c0c8;
+        .avatar, .avatar.xmas:after {
+            background-position: 50%;
+            background-repeat: no-repeat;
+        }
+       
+        .avatar {
+            display: inline-block;
+            position: relative;
+            background-size: cover;
+            background-color: #eee;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .lazy {
+            position: relative;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+        .info-box {
+            flex: 1 1 auto;
+            min-width: 0;
+            .username {
+                font-size: 1.333rem;
+                font-weight: 500;
+                color: #393939;
+            }
+            
+            .username {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #2e3135;
+                .name {
+                    max-width: 200px;
+                }
+               .name {
+                    display: inline-block;
+                    vertical-align: top;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+            .detail {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .detail {
+                font-size: 1rem;
+                font-weight: 400;
+                color: #b9c0c8;
+            }
+            .describe {
+                color: #777d81;
+                font-size: 12px;
+            }
+            .describe, .detail {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        .follow-btn {
+            flex: 0 0 auto;
+            margin: 0 0 0 1rem;
+            padding: 0;
+            width: 6.6rem;
+            height: 2.5rem;
+            font-size: 1.1rem;
+            color: #37c701;
+            background-color: #fff;
+            border: 1px solid rgba(55,199,1,.6);
+            border-radius: 2px;
+        }
+    }
+}

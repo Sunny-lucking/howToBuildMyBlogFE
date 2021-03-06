@@ -1,7 +1,7 @@
 import "./style.less"
 import 'braft-editor/dist/index.css'
 import Editor from "components/BraftEditor"
-import PinList from "./PinList"
+import PinList from "components/PinList"
 import queryString from "query-string"
 import { notification, message, Modal, Tag } from "antd"
 import { useSelector } from "react-redux"
@@ -80,7 +80,7 @@ function Stream(props: StreamProps) {
         })
         if (result.data.code !== 0) {
             notification.open({
-                message: '获取评论失败',
+                message: result.data.msg,
             });
         } else {
             setState({
@@ -106,7 +106,7 @@ function Stream(props: StreamProps) {
             user_name: user.git_name,
             content: state.pinValue,
             user_id: user._id,
-            cover: user.avatar_url, // 用户头像
+            user_avatar: user.avatar_url, // 用户头像
             pinTypeValue: tagList[state.tagIndex].value, // 沸点类型的值
             pinTypeLabel: tagList[state.tagIndex].label, // 沸点类型的label
         })

@@ -23,7 +23,7 @@ function Comment(props: CommentProps) {
         }
     }, [props.commentTypeID])
     return (
-        <div className="comment-list-box">
+        <div className="comment-list-box" id="comment-list-box">
             <div className="comment-form comment-form focused">
                 <BraftEditor
                     placeholder="来说两句吧"
@@ -52,7 +52,7 @@ function Comment(props: CommentProps) {
 
         if (result.data.code !== 0) {
             notification.open({
-                message: '获取评论失败',
+                message: result.data.msg,
             });
         } else {
             setState({

@@ -42,13 +42,13 @@ function PinItem(props: PinItemProps) {
                 <div className="pin-header-row">
                     <div className="account-group">
                         <div className="user-popover-box">
-                            <a href="/user/676954893195047" target="_blank" rel="" className="user-link">
+                            <a href={`/juejin/user/${pinItem?.user_id}/posts`} target="_blank" rel="" className="user-link">
                                 <img src="http://localhost:3000/avatar.png" alt="Bzerocoder的头像" className="lazy avatar avatar" data-src="https://user-gold-cdn.xitu.io/2019/6/20/16b74ae27114ed7d?imageView2/1/w/100/h/100/q/85/format/webp/interlace/1" />
                             </a>
                         </div>
                         <div className="pin-header-content">
                             <div className="user-popover-box">
-                                <a href="/user/676954893195047" target="_blank" rel="" className="username">{pinItem.user_name}</a>
+                                <a href={`/juejin/user/${pinItem?.user_id}/posts`} target="_blank" rel="" className="username">{pinItem.user_name}</a>
                             </div>
                             <div className="meta-box">
                                 <div className="position ellipsis">{pinItem.user_name}</div>

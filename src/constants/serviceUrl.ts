@@ -25,6 +25,7 @@ export const EVENT_LIST_URL = `${BASE_URL}/event/list`
 // article
 export const IMAGE_UPLOAD_URL = `${BASE_URL}/article/addMarkDownImg`
 export const ARTICLE_ADD_URL = `${BASE_URL}/article/add`
+export const ARTICLE_EDIT_URL = `${BASE_URL}/article/edit`
 export const ARTICLE_LIST_URL = `${BASE_URL}/article/list`
 export const ARTICLE_DETAIL_URL = `${BASE_URL}/article/detail`
 export const ARTICLE_PRAISE_URL = `${BASE_URL}/article/praise`

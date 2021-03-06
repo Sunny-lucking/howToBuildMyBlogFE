@@ -49,6 +49,11 @@ const routes: RouterConfig[] = [
                 component: LoadableComponent(() => import('pages/Pins')),
             },
             {
+                path: '/juejin/pin/:_id',
+                label: '沸点详情',
+                component: LoadableComponent(() => import('pages/PinDetail')),
+            },
+            {
                 path: '/juejin/home',
                 label: '首页',
                 component: LoadableComponent(() => import('pages/Home')),
@@ -72,6 +77,11 @@ const routes: RouterConfig[] = [
                 path: '/juejin/books',
                 label: '首页',
                 component: LoadableComponent(() => import('pages/Book')),
+            },
+            {
+                path: '/juejin/userRank',
+                label: '首页',
+                component: LoadableComponent(() => import('pages/UserRank')),
             },
             {
                 path: '/juejin/user_setting',
@@ -102,6 +112,11 @@ const routes: RouterConfig[] = [
                         path: '/juejin/user/:id/followers',
                         label: "关注者",
                         component: LoadableComponent(() => import('pages/User/ListBlock/Followers')),
+                    },
+                    {
+                        path: '/juejin/user/:id/collects',
+                        label: "收藏",
+                        component: LoadableComponent(() => import('pages/User/ListBlock/Collects')),
                     }
                 ]
             },

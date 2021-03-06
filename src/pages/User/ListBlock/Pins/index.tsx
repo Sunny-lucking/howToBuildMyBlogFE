@@ -1,12 +1,12 @@
 import "./style.less"
-import { useEffect,useState } from "react"
+import { useEffect, useState } from "react"
 import { throttle } from "constants/utils"
 import { GetPin } from "service/pin"
 import PinList from "components/PinList"
-import { useSetState } from "ahooks"
+import { Empty, Skeleton } from "antd"
 interface PinProps {
     userId: string,
-    match:any,
+    match: any,
 }
 interface PinState {
     pinList: any,
@@ -15,7 +15,7 @@ interface PinState {
 }
 function Pins(props: PinProps) {
 
-    const userId  = props.match.params.id
+    const userId = props.match.params.id
     const [pinState, setPinState] = useState<PinState>({
         pinList: [],
         pageNum: 1,
@@ -25,9 +25,9 @@ function Pins(props: PinProps) {
 
     let getMoreLatestThrottle = throttle(getLatestArticle);
     // 进入，先第一次获取列表数据
-    useEffect(()=>{
+    useEffect(() => {
         getMoreLatestThrottle()
-    },[])
+    }, [])
     useEffect(() => {
         function getMoreListListener() {
             let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -38,7 +38,7 @@ function Pins(props: PinProps) {
             }
         }
         window.addEventListener('scroll', getMoreListListener)
-        return function(){
+        return function () {
             window.removeEventListener('scroll', getMoreListListener)
         }
     })
@@ -47,23 +47,30 @@ function Pins(props: PinProps) {
         <div className="like-list-box">
             <PinList
                 pinList={pinState.pinList}
-                onReLoadPinList={()=>getMoreLatestThrottle}
+                onReLoadPinList={() => getMoreLatestThrottle}
             />
+            {
+                pinState.pinList?.length === 0 &&
+                // <Empty description="没有数据呢"/>
+                <div style={{ padding: '20px' }}>
+                    <Empty description="没有数据呢" />
+                </div>
+            }
         </div>
 
     )
     async function getLatestArticle() {
-        let result: any = await GetPin({ pageNum: pinState.pageNum,pageSize:pinState.pageSize ,user_id:userId})
+        let result: any = await GetPin({ pageNum: pinState.pageNum, pageSize: pinState.pageSize, user_id: userId })
         if (result.data.code === 0 && result.data.pins) {
-            setPinState((preState:PinState)=>{
+            setPinState((preState: PinState) => {
                 return {
                     ...preState,
-                    pageNum:preState.pageNum+1,
+                    pageNum: preState.pageNum + 1,
                     pinList: preState.pinList.concat(result.data.pins)
                 }
             })
         }
-        
+
     }
 }
 

@@ -7,7 +7,7 @@ import { useSelector } from "react-redux"
 import StateStore from "store"
 import { useState, useRef ,useEffect} from "react"
 import { Select, notification, message } from "antd"
-import { AddArticle ,GetArticleDetail} from "service/article"
+import { AddArticle ,EditArticle,GetArticleDetail} from "service/article"
 import Menu from "components/Menu"
 import queryString from "query-string"
 
@@ -20,7 +20,16 @@ interface Article {
 
 const { Option } = Select;
 function Editor() {
-
+    const config = {
+        modify:{
+            title:"add new article",
+            submit:EditArticle,
+        },
+        create:{
+            title:"modify article",
+            submit: AddArticle,
+        },
+    }
     let [state, setState] = useSetState({
         isShowPanel: false,
         isShowNavigator: false,
@@ -35,18 +44,10 @@ function Editor() {
     })
     const history = useHistory()
     const action = queryString.parse(history.location.search)._id?"modify":"create"
+    const submit = config[action].submit
     let user = useSelector((state: StateStore) => state.userStore.user)
     let categoryList: any = useSelector((state: StateStore) => state.categoryStore.category_list)
-    const config = {
-        modify:{
-            title:"add new article",
-            submit:onSubmit
-        },
-        create:{
-            title:"modify article",
-            submit:onSubmit
-        },
-    }
+
     if (!user) {
         history.push("/juejin/home")
     }
@@ -194,7 +195,7 @@ function Editor() {
         }
 
         // 提交信息，创建新文章
-        const result: any = await AddArticle(article)
+        const result: any = await submit(article)
         if (result.data.code === 0) {
             message.success(result.data.msg);
             history.push("/juejin/home")
