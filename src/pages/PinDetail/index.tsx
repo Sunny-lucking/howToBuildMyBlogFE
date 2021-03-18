@@ -1,6 +1,6 @@
 import "./style.less"
 import PinList from "components/PinList"
-import { AddPin, GetPin } from "service/pin"
+import { AddPin, GetPinDetail } from "service/pin"
 import { useSetState } from "ahooks"
 import { useEffect } from "react"
 import { notification, message, Modal, Tag } from "antd"
@@ -11,7 +11,6 @@ const tagList = [
     { label: "今天学到了", value: '6824710202562969614' },
 ]
 function PinDetail(props: any) {
-
 
     const [state, setState] = useSetState({
         pinList: [],
@@ -38,7 +37,7 @@ function PinDetail(props: any) {
 
 
     async function setPin() {
-        const result: any = await GetPin({
+        const result: any = await GetPinDetail({
             _id
         })
         if (result.data.code !== 0) {
@@ -47,7 +46,7 @@ function PinDetail(props: any) {
             });
         } else {
             setState({
-                pinList: result.data.pins
+                pinList: [result.data.pin] as any
             })
         }
     }

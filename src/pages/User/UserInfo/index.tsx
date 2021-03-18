@@ -67,7 +67,7 @@ function UserInfo(props: UserProps) {
                         :
                         <FollowBtn
                             authorInfo={authorInfo}
-                            onFollowChange={props.onFollowChange}
+                            // onFollowChange={props.onFollowChange}
                         />
                 }
             </div>

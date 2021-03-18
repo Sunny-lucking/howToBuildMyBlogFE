@@ -4,7 +4,7 @@ import SideBar from './SideBar'
 import Suspended from "./Suspended"
 import Comment from "components/Comment"
 import EntryList from "components/EntryList"
-import { GetArticleDetail,GetArticleList } from "service/article"
+import { GetArticleDetail, GetArticleList } from "service/article"
 import { GetAuthorInfo } from "service/user"
 import { AddComment, GetComment } from "service/comment"
 import queryString from "query-string"
@@ -15,7 +15,8 @@ import moment from "moment"
 import { getTagNameFromCategoryList } from "constants/utils"
 import StateStore from "store"
 import { useSelector } from "react-redux"
-import { notification} from "antd"
+import { notification } from "antd"
+import FollowBtn from "components/FollowBtn"
 interface State {
     article: any,
     authorInfo: any,
@@ -31,7 +32,7 @@ function Detail() {
         authorInfo: {
 
         },
-        relatedArticle:[]
+        relatedArticle: []
     })
     useEffect(() => {
         setArticleDetail()
@@ -40,7 +41,7 @@ function Detail() {
         article?.user_id && setAuthorInfo(article?.user_id)
         article?.user_id && setRelatedArticle(article?.user_id)
     }, [state.article?.user_id])
-    const { article, authorInfo,relatedArticle } = state
+    const { article, authorInfo, relatedArticle } = state
     return (
         <div className="view column-view">
             <div className="main-area article-area shadow">
@@ -66,9 +67,14 @@ function Detail() {
                                 </time>
                                 <span className="views-count">阅读 {article?.pvcount}</span>
                             </div></div>
-                        <button data-v-06c7d5b3="" className="follow-button follow">
+                        <FollowBtn
+                            authorInfo={authorInfo}
+                        // onFollowChange={()=>{}}
+                        // onFollowChange={()=>setAuthorInfo(state.authorInfo?._id)}
+                        />
+                        {/* <button data-v-06c7d5b3="" className="follow-button follow">
                             <span data-v-06c7d5b3="">关注</span>
-                        </button>
+                        </button> */}
                     </div>
                     <h1 className="article-title">
                         {article.title}
@@ -88,8 +94,8 @@ function Detail() {
                 </div>
                 <Comment commentTypeID={article._id} authorID={article.user_id} commentType="article" />
             </div>
-            <SideBar authorInfo={authorInfo} relatedArticle={relatedArticle}/>
-            <Suspended article={article} onReLoadArticleList={()=>setArticleDetail()}/>
+            <SideBar authorInfo={authorInfo} relatedArticle={relatedArticle} />
+            <Suspended article={article} onReLoadArticleList={() => setArticleDetail()} />
             <div className="main-area recommended-area shadow">
                 <div className="recommended-entry-list-title">
                     相关推荐
@@ -108,7 +114,7 @@ function Detail() {
             })
         }
     }
-    async function setRelatedArticle(user_id:string) {
+    async function setRelatedArticle(user_id: string) {
         const result: any = await GetArticleList({ user_id })
         console.log(result.data.articleList);
         if (result.data.code === 0) {
@@ -123,7 +129,7 @@ function Detail() {
             setState({
                 authorInfo: result.data.user
             })
-        }else{
+        } else {
             notification.open({
                 message: result.data.msg,
             });

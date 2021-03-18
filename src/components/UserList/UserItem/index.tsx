@@ -10,7 +10,7 @@ import Comment from "components/Comment"
 import { useSetState, useClickAway } from "ahooks"
 import { useRef } from "react"
 import { useHistory } from "react-router-dom"
-
+import FollowBtn from "components/FollowBtn"
 interface PinItemProps {
     userItem: any,
     // onReLoadPinList: () => void // 当点击删除沸点的时候，触发该事件导致重新请求
@@ -34,7 +34,7 @@ function UserItem(props: PinItemProps) {
 
     return (
         <div className="user">
-            <div  className="link">
+            <div className="link">
                 <img src={userItem?.avatar_url} alt={`${userItem.git_name}的头像`} className="lazy avatar avatar" />
                 <div className="info-box">
                     <a href={`/juejin/user/${userItem?._id}/posts`} target="_blank" rel="" className="username">
@@ -49,7 +49,12 @@ function UserItem(props: PinItemProps) {
                         <span >·</span> <span >{userItem.pvCount} 阅读</span>
                     </div>
                 </div>
-                <button className="follow-btn">关注</button>
+                <FollowBtn
+                    authorInfo={userItem}
+                    // onFollowChange={()=>{}}
+                    // onFollowChange={()=>setAuthorInfo(state.authorInfo?._id)}
+                />
+                {/* <button className="follow-btn">关注</button> */}
             </div>
         </div>
     )

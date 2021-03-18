@@ -50,10 +50,10 @@ function Posts(props: PostsProps) {
         <div className="post-list-box">
             <div className="sub-header">
                 <div className="sub-header-title">文章</div>
-                <div className="sub-type-box">
+                {/* <div className="sub-type-box">
                     <a href="/user/1204720476893064/posts?sort=popular" className="sub-type">热门</a>
                     <a href="/user/1204720476893064/posts?sort=newest" className="sub-type active">最新</a>
-                </div>
+                </div> */}
             </div>
             <EntryListWrap articleList={articleState.articleList}/>
         

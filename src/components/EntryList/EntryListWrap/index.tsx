@@ -6,6 +6,7 @@ interface EntryListWrapProps {
     onArticleListChange?:()=>void
 }
 function EntryListWrap(props: EntryListWrapProps) {
+    // debugger
     return (
         <div className="entry-list-wrap">
             <ul className="entry-list">

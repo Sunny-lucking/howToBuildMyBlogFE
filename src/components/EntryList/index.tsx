@@ -12,7 +12,7 @@ import StateStore from "store"
 import queryString from "query-string"
 import { notification } from "antd"
 interface ArticleState {
-    articleList: ArticleVO[] ,
+    articleList: any,
     pageNum: number,
     pageSize: number,
     cateId: string,
@@ -24,7 +24,7 @@ function EntryList(props: any) {
     let categoryList: any = useSelector((state: StateStore) => state.categoryStore.category_list)
     let user: any = useSelector((state: StateStore) => state.userStore.user)
     const [articleState, setArticleState] = useSetState<ArticleState>({
-        articleList: [],
+        articleList: undefined,
         pageNum: 1,
         pageSize: 2,
         cateId: '',
@@ -108,9 +108,9 @@ function EntryList(props: any) {
         })
     }
     async function getLatestArticle(config?: any) {
-        setArticleState({
-            articleList : undefined 
-        })
+        // setArticleState({
+        //     articleList : undefined 
+        // })
         let params = {
             pageNum: articleState.pageNum,
             pageSize: articleState.pageSize,

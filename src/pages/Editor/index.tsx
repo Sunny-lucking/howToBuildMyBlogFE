@@ -16,6 +16,7 @@ interface Article {
     content: string,
     category: number,
     tag: number,
+    categoryName:string,
 }
 
 const { Option } = Select;
@@ -40,6 +41,7 @@ function Editor() {
         title: '',
         content: '',
         category: -1,
+        categoryName:'',
         tag: -1,
     })
     const history = useHistory()
@@ -254,7 +256,8 @@ function Editor() {
             setCurrentTagList(categoryList[index].tags)
             setActiveIndex(index)
             setArticle({
-                category: categoryList[index]._id
+                category: categoryList[index]._id,
+                categoryName:categoryList[index].categoryName
             })
         }
     }

@@ -1,5 +1,5 @@
 import {
-    PIN_ADD_URL,PIN_LIST_URL,PIN_DELETE_URL,PIN_PRAISE_URL,PIN_CANCEL_PRAISE_URL,
+    PIN_ADD_URL,PIN_LIST_URL,PIN_DELETE_URL,PIN_PRAISE_URL,PIN_CANCEL_PRAISE_URL,PIN_DETAIL_URL,
 } from 'constants/serviceUrl';
 import {postRequest} from "utils/request";
 
@@ -19,7 +19,9 @@ export function CancelPraisePin(params: any) {
 export function GetPin(params: any) {
     return postRequest(PIN_LIST_URL, params);
 }
-
+export function GetPinDetail(params: any) {
+    return postRequest(PIN_DETAIL_URL, params);
+}
 // export function AddRecall(params: any) {
 //     return postRequest(RECALL_ADD_URL, params);
 // }

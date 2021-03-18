@@ -45,6 +45,7 @@ export const RECALL_ADD_URL = `${BASE_URL}/comment/addRecall`
 // pin
 export const PIN_ADD_URL = `${BASE_URL}/pin/addPin`
 export const PIN_LIST_URL = `${BASE_URL}/pin/getPin`
+export const PIN_DETAIL_URL = `${BASE_URL}/pin/detail`
 export const PIN_DELETE_URL = `${BASE_URL}/pin/deletePin`
 export const PIN_PRAISE_URL = `${BASE_URL}/pin/praise`
 export const PIN_CANCEL_PRAISE_URL = `${BASE_URL}/pin/cancelPraise`

@@ -53,7 +53,7 @@ function App(props:any) {
     if (code) {
       let result: any = await GetUserToken({code:code as string})
       localStorage.setItem('blogFrontToken', result.data.blogFrontToken)
-      userLogin()
+      await userLogin()
       history.push("/juejin/home")
     }
   }

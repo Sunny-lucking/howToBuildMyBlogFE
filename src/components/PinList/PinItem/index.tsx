@@ -69,9 +69,10 @@ function PinItem(props: PinItemProps) {
                                     <EllipsisOutlined style={{ fontSize: 20, cursor: 'pointer' }} />
                                 </Dropdown>
                                 :
-                                <button className="subscribe-btn follow-button">
-                                    <span >关注</span>
-                                </button>
+                                <span></span>
+                                // <button className="subscribe-btn follow-button">
+                                //     <span >关注</span>
+                                // </button>
                         }
 
                     </div>
